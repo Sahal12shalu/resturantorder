@@ -1,0 +1,46 @@
+{
+  "name": "myproject",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^7.1.2",
+    "@mui/styled-engine-sc": "^7.1.1",
+    "@mui/x-date-pickers": "^8.5.3",
+    "axios": "^1.10.0",
+    "bootstrap": "^5.3.6",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.13",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.1",
+    "mdb-react-ui-kit": "^9.0.0",
+    "moment-timezone": "^0.6.0",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.15.2",
+    "multer": "^2.0.1",
+    "next": "15.3.3",
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.2",
+    "react-toastify": "^11.0.5",
+    "styled-components": "^6.1.19",
+    "tailwind-scrollbar-hide": "^4.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.3",
+    "tailwindcss": "^4"
+  }
+}
