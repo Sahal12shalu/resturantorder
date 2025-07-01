@@ -11,7 +11,7 @@ export default function Server() {
     app.use(cors());
     app.use(fileupload())
 
-    mongoose.connect(process.env.Mongodbatlas)
+    mongoose.connect(process.env.MONGO_URL)
 
     app.post('/productdetails', (async(req, res) => {
         req.body.addons = JSON.parse(req.body.addons)
