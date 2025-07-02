@@ -11,7 +11,9 @@ export default function Server() {
     app.use(cors());
     app.use(fileupload())
 
-    mongoose.connect(process.env.MONGO_URL)
+    mongoose.connect("mongodb+srv://sahalstart1:ERH1HhPs2EZ78sLL@cluster0.62fpwom.mongodb.net/hotel2").then(()=>{
+        console.log('mongodb connected')
+    })
 
     app.post('/productdetails', (async(req, res) => {
         req.body.addons = JSON.parse(req.body.addons)
