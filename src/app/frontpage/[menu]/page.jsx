@@ -58,9 +58,9 @@ function Menu({ params }) {
   }, [])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/getproductdetail')
+    axios.get('/api/productdeails')
       .then((res) => {
-        const all = res.data
+        const all = res.data.product
         setAllProducts(all)
         const Normal = all.filter(item => item.seperation === 'Normal')
         setFilteredProducts(Normal)
@@ -185,7 +185,7 @@ function Menu({ params }) {
                           <div key={index} className='h-auto hover:scale-105 duration-500 w-[190px] xl:w-[230px] pb-3.5 text-black gap-2 rounded-tl-xl rounded-tr-xlrounded-tl-xl rounded-tr-xl
                            shadow-[-1px_1px_7px_8px_rgba(0,_0,_0,_0.1)] flex flex-col items-center relative'>
 
-                            <img src={value.image} style={{ width: '100%', height: '170px', objectFit: 'fill' }} className='rounded-t-xl' alt='none' />
+                            <img src={data.image} style={{ width: '100%', height: '170px', objectFit: 'fill' }} className='rounded-t-xl' alt='none' />
                             <div className='flex flex-wrap items-center justify-center text-[14px] xl:text-[18px] font-serif font-semibold'>
                               {data.name}
                               <IoIosRadioButtonOn className={`${data.vegornon === 'veg' ? 'text-green-500' : 'text-red-500'} ml-3 text-md`} />

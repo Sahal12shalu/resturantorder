@@ -13,7 +13,7 @@ function Editpage() {
   const pageid = params['editforid']
   const proId = params['editpage']
   const [selectedImage, setSelectedImage] = useState(null);
-  const [imagebase64,Setimagebase64] = useState('')
+  const [image,Setimagebase64] = useState('')
   const [data, Setdata] = useState({
     addons: [],
   })
@@ -24,20 +24,25 @@ function Editpage() {
   const [seperation, Setseperation] = useState('')
   const [loading,Setloading] = useState(false)
 
-  const formData = new FormData()
-
-  formData.append('name', name)
-  formData.append('description', description)
-  formData.append('category', category)
-  formData.append('vegornon', vegornon)
-  formData.append('seperation', seperation)
-  formData.append('addons', JSON.stringify(data.addons))
-  formData.append('image', imagebase64)
+  const formData = {
+    name,
+    description,
+    category,
+    vegornon,
+    seperation,
+    data:data.addons,
+    image,
+    proId
+  }
 
   const editsubmit = (e) => {
     Setloading(true)
     e.preventDefault()
-    axios.post(`http://localhost:3001/editedproduct/${proId}`, formData)
+    axios.put('/api/productdeails',formData,{
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
       .then(() => {
         setTimeout(()=>{
           Setloading(false)
@@ -47,14 +52,15 @@ function Editpage() {
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/getsingleproductdetail/${proId}`)
+    axios.get(`/api/productdeails/singleproduct?id=${proId}`)
       .then((res) => {
-        Setdata(res.data)
-        Setname(res.data.name)
-        Setdescription(res.data.description)
-        Setcategory(res.data.category)
-        Setvegornon(res.data.vegornon)
-        Setseperation(res.data.seperation)
+        Setdata(res.data.product)
+        Setname(res.data.product.name)
+        Setdescription(res.data.product.description)
+        Setcategory(res.data.product.category)
+        Setvegornon(res.data.product.vegornon)
+        Setseperation(res.data.product.seperation)
+        Setimagebase64(res.data.product.image)
       })
   }, [])
 

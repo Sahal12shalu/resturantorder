@@ -24,9 +24,10 @@ function Showpage() {
     )
 
     useEffect(() => {
-        axios.get('http://localhost:3001/getproductdetail')
+        axios.get('/api/productdeails')
             .then((res) => {
-                Setdata(res.data)
+                console.log(res)
+                Setdata(res.data.product)
             })
     }, [])
 
@@ -36,7 +37,7 @@ function Showpage() {
     }
 
     const popupconfirm = () =>{
-        axios.post(`http://localhost:3001/deleteproduct/${proId}`)
+        axios.delete(`/api/productdeails?id=${proId}`)
         .then((res)=>{
             if(res.data === 'success'){
                 SetproId('')

@@ -27,21 +27,25 @@ function Popup({ isOpen, onClose, id, onSuccess, pageId }) {
     const addon = await JSON.parse(value)
     if (!id) return;
     Setloading(true)
-    axios.post(`http://localhost:3001/addcartproduct/${id}/${quantity}/${pageId}`, addon)
+    console.log(addon)
+    axios.post(`/api/cartproduct`,{
+      id,quantity,pageId,addon
+    })
       .then((res) => {
         setTimeout(() => {
           Setloading(false)
           Setdata([])
           Setquantity(1)
-          if (res.data === 'success') {
+          if (res.data.data === 'success') {
             onSuccess()
             onClose()
-            axios.post(`http://localhost:3001/getcartproductbyId/${pageId}`)
+            axios.get(`/api/cartproduct?pageId=${pageId}`)
             .then((res) => {
-                if (res.data.length === 0) {
+              console.log(res)
+                if (res.data.data.length === 0) {
                     SetcartValue(0)
                 } else {
-                    SetcartValue(res.data[0].items.length)
+                    SetcartValue(res.data.data[0].items.length)
                 }
             })
           }
@@ -68,9 +72,9 @@ function Popup({ isOpen, onClose, id, onSuccess, pageId }) {
 
   useEffect(() => {
     if (!id) return;
-    axios.get(`http://localhost:3001/getsingleproductdetail/${id}`)
+    axios.get(`/api/productdeails/singleproduct?id=${id}`)
       .then((res) => {
-        Setdata(res.data)
+        Setdata(res.data.product)
       })
   }, [id])
 

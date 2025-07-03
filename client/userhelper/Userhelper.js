@@ -1,6 +1,6 @@
-const productModel = require('../../client/schema/productschema')
-const CartModel = require('../../client/schema/cartschema')
-const HistoryModel = require('../../client/schema/historyschema')
+const productModel = require('../../src/app/api/schema/productschema')
+const CartModel = require('../../src/app/api/schema/cartschema')
+const HistoryModel = require('../../src/app/api/schema/historyschema')
 
 module.exports = {
 
@@ -182,8 +182,8 @@ module.exports = {
         })
     }),
 
-    editedproduct: ((data, id) => {
-        const updateAddons = data.addons.map(addon => {
+    editedproduct: ((data) => {
+        const updateAddons = data.data.map(addon => {
             if (addon._id) {
                 return {
                     _id: addon._id,
@@ -198,7 +198,7 @@ module.exports = {
             }
         })
         return new Promise((resolve, reject) => {
-            productModel.updateOne({ _id: id }, {
+            productModel.updateOne({ _id: data.proId }, {
                 $set: {
                     name: data.name,
                     description: data.description,

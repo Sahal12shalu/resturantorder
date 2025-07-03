@@ -22,64 +22,64 @@ function Addproduct() {
   const [category, Setcategory] = useState('')
   const [vegornon, Setvegornon] = useState('')
   const [seperation, Setseperation] = useState('')
-  const [imagebase64,Setimagebase64] = useState('')
+  const [image, Setimagebase64] = useState('')
   const [addons, setAddons] = useState([
     { name: '', price: 0 }
   ]);
-  const [prize, Setprize] = useState([])
   const [loading, Setloading] = useState(false)
 
-  const formData = new FormData()
-
-  formData.append('name', name)
-  formData.append('description', description)
-  formData.append('category', category)
-  formData.append('vegornon', vegornon)
-  formData.append('prize', prize)
-  formData.append('seperation', seperation)
-  formData.append('addons', JSON.stringify(addons))
-  formData.append('image', imagebase64)
-
+  const formData = {
+    name,
+    description,
+    category,
+    vegornon,
+    seperation,
+    addons,
+    image
+  }
+  
   const Handlesubmit = (e) => {
     e.preventDefault()
-    Setprize(addons)
     Setloading(true)
-    axios.post('http://localhost:3001/productdetails', formData)
-      .then((res) => {
-        if (res.data === 'success') {
-          setTimeout(() => {
-            Setloading(false)
-            toast("Products Added")
-            Setname('')
-            Setdescription('')
-            Setcategory('')
-            Setvegornon('')
-            Setseperation('')
-            setSelectedImage('')
-            setAddons([{ name: '', price: 0 }])
-            router.push(`/pages/${pageid}`)
-          }, 1000)
-        }
-      })
+    axios.post('/api/productdeails', formData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then((res)=>{
+      if (res.data.data === 'success') {
+        setTimeout(() => {
+          Setloading(false)
+          toast("Products Added")
+          Setname('')
+          Setdescription('')
+          Setcategory('')
+          Setvegornon('')
+          Setseperation('')
+          setSelectedImage('')
+          setAddons([{ name: '', price: 0 }])
+          router.push(`/pages/${pageid}`)
+        }, 1000)
+      }
+    })
   }
 
-  function convertTobase64(file){
-        return new Promise((resolve,reject)=>{
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = () => resolve(reader.result)
-        })
-    }
+  function convertTobase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result)
+    })
+  }
 
-   
-  const handleImageChange =async (e) => {
+
+  const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setSelectedImage(imageUrl);
 
-       const base64 =await convertTobase64(file)
-       Setimagebase64(base64)
+      const base64 = await convertTobase64(file)
+      Setimagebase64(base64)
 
     }
   };

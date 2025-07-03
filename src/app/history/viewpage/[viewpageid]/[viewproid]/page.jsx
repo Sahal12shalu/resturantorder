@@ -14,9 +14,9 @@ function Viewpage() {
   const [product, Setproduct] = useState([])
 
   useEffect(() => {
-    axios.post(`http://localhost:3001/getviewproduct/${proId}`)
+    axios.get(`/api/checkout/allcheckout?id=${proId}`)
       .then((res) => {
-        Setproduct(res?.data)
+        Setproduct(res?.data.data)
       })
   }, [])
 

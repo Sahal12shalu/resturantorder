@@ -35,11 +35,11 @@ function About() {
   }
 
   useEffect(() => {
-    axios.post(`http://localhost:3001/getsuccessproduct/${pageid}`)
+    axios.get(`/api/checkout?id=${pageid}`)
       .then((res) => {
-        Setlength(res.data.length)
-        const data = res.data
-        Setdata(res.data)
+        Setlength(res.data.data.length)
+        const data = res.data.data
+        Setdata(res.data.data)
 
         const total = data.reduce((acc, curr) => acc + curr.grandtotal, 0)
         Settotalamount(total)

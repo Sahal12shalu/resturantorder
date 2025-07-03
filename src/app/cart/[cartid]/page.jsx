@@ -30,13 +30,13 @@ function Cartpage({ params }) {
     const [checkoutid, Setcheckoutid] = useState('')
     const [loading, Setloading] = useState(false)
     const router = useRouter()
-    const { cartValue , SetcartValue } = useCart()
+    const { cartValue, SetcartValue } = useCart()
 
     const confirmCheckout = () => {
         Setloading(true)
-        axios.post(`http://localhost:3001/deletecartandstore/${checkoutid}`)
+        axios.post(`/api/checkout?id=${checkoutid}`)
             .then((res) => {
-                    if (res.data === 'success') {
+                if (res.data === 'success') {
                     setcheckoutShowPopup(false)
                     setTimeout(() => {
                         router.push(`/history/${id}`)
@@ -46,12 +46,12 @@ function Cartpage({ params }) {
     }
 
     useEffect(() => {
-        axios.post(`http://localhost:3001/getcartproductbyId/${id}`)
+        axios.get(`/api/cartproduct?pageId=${id}`)
             .then((res) => {
-                if (res.data.length === 0) {
+                if (res.data.data.length === 0) {
                     SetcartValue(0)
                 } else {
-                    SetcartValue(res.data[0].items.length)
+                    SetcartValue(res.data.data[0].items.length)
                 }
             })
     }, [])
@@ -79,7 +79,7 @@ function Cartpage({ params }) {
     }
 
     const confirmDelete = () => {
-        axios.post(`http://localhost:3001/deleteallcart/${id}`)
+        axios.delete(`/api/cartproduct/cartalledit?id=${id}`)
             .then((res) => {
                 if (res.data === 'success') {
                     toast('delet all cart')
@@ -89,35 +89,39 @@ function Cartpage({ params }) {
     }
 
     const editproductquantity = (id, pageid, quantity, totalamount) => {
-        axios.post(`http://localhost:3001/quantitychange/${id}/${pageid}/${quantity}/${totalamount}`)
+        axios.patch(`/api/cartproduct`, {
+            id, pageid, quantity, totalamount
+        })
             .then((res) => {
-                if (res.data === 'success') {
+                if (res.data.data === 'success') {
                     toast('quantity changed')
                 }
             })
     }
 
     const Deleteproduct = (id, pageid) => {
-        axios.post(`http://localhost:3001/deletecartsingleproduct/${id}/${pageid}`)
+        axios.delete(`/api/cartproduct`, {
+            data: { id, pageid }
+        })
             .then(async (res) => {
                 toast('product delete from cart')
-                if(res.data[0]){
-                     SetcartValue(res.data[0].items.length)
-                     Setcartproducts(prevProduct => prevProduct.filter(item => item._id !== id))
-                     Setcheckoutdetail(res.data)
-                }else{
+                if (res.data.data[0]) {
+                    SetcartValue(res.data.data[0].items.length)
+                    Setcartproducts(prevProduct => prevProduct.filter(item => item._id !== id))
+                    Setcheckoutdetail(res.data.data)
+                } else {
                     Setcartproducts([])
                 }
             })
     }
 
     useEffect(() => {
-        axios.post(`http://localhost:3001/getcartproductbyId/${id}`)
+        axios.get(`/api/cartproduct?pageId=${id}`)
             .then((res) => {
-                Setalldetails(res.data[0])
-                if (res.data[0]) {
-                    Setcartproducts(res.data[0].items)
-                    Setcheckoutdetail(res.data)
+                Setalldetails(res.data.data[0])
+                if (res.data.data[0]) {
+                    Setcartproducts(res.data.data[0].items)
+                    Setcheckoutdetail(res.data.data)
                 } else {
                     Setcartproducts([])
                 }
@@ -127,6 +131,7 @@ function Cartpage({ params }) {
 
     const incrementbutton = (index) => {
         const updated = [...cartproducts];
+        console.log(updated)
         updated[index].quantity += 1;
         const price = Number(updated[index].addons[0]?.price)
         updated[index].totalamount = price * updated[index].quantity

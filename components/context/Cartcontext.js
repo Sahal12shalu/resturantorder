@@ -13,12 +13,12 @@ export const Cartprovider = ({ children }) => {
     useEffect(() => {
         const parts = pathname.split('/')
         const pageId = parts[2]
-        axios.post(`http://localhost:3001/getcartproductbyId/${pageId}`)
+        axios.get(`/api/cartproduct?pageId=${pageId}`)
             .then((res) => {
-                if (res.data.length === 0) {
+                if (res.data.data.length === 0) {
                     SetcartValue(0)
                 } else {
-                    SetcartValue(res.data[0].items.length)
+                    SetcartValue(res.data.data[0].items.length)
                 }
             })
     }, [pathname])
