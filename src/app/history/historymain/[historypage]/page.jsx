@@ -192,7 +192,7 @@ function History() {
               </Table>
 
               {
-                product.map((item, index) => (
+                filteredData.map((item, index) => (
                   <div key={index} className='md:hidden py-7 flex justify-between items-center px-2 border-b-2 shadow-[0px_2px_11px_9px_rgba(0,_0,_0,_0.1)] border-orange-500'>
                     <div>
                       <h1 className='font-semibold text-[13px]'>{item._id}</h1>
@@ -212,7 +212,7 @@ function History() {
                         <h1 className='font-semibold'>Amount - {item.grandtotal}</h1>
                       </div>
                       <div className='flex justify-end items-end'>
-                        <Link href={`/history/viewpage/${pageid}/${item._id}`}><button className='bg-orange-500 hover:bg-orange-600 mt-6 text-white w-[120px] rounded-md flex items-center px-4 h-[30px]'>View Details</button></Link>
+                        <Link href={`/history/viewpage/${item._id}/${pageid}`}><button className='bg-orange-500 hover:bg-orange-600 mt-6 text-white w-[120px] rounded-md flex items-center px-4 h-[30px]'>View Details</button></Link>
                       </div>
                     </div>
                   </div>
