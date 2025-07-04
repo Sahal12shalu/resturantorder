@@ -51,7 +51,7 @@ export async function POST(req) {
    }
 
    export async function PATCH(req) {
-    await  mongoose.connect('mongodb://localhost:27017/hotel2')
+    await  dbConnect()
 
     const body =await req.json();
     const {id,pageid,quantity,totalamount} = body
