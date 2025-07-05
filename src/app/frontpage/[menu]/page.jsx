@@ -97,7 +97,7 @@ function Menu({ params }) {
   return (
     <div className='bg-white'>
       <Navbar id={id} />
-      <div>
+      <div className='bg-amber-200'>
         <div className='w-full h-[500px] relative'>
           <Image className='absolute top-0 w-full h-full' src={background} alt='' />
           <div className='absolute left-0 w-full h-[500px] top-0 bg-black opacity-30'></div>
