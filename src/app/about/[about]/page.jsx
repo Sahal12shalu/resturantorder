@@ -58,7 +58,7 @@ function About() {
 
 
   return (
-    <div>
+    <div className='bg-white'>
       <Navbar id={pageid} />
       <div className='lg:mt-[150px] mt-[100px] flex flex-col justify-center items-center'>
         <h1 className='text-[26px] font-semibold'>Table Number - {pageid}</h1>

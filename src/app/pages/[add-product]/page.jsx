@@ -100,7 +100,7 @@ function Addproduct() {
   }
 
   return (
-    <div >
+    <div className='bg-white'>
       <div className='absolute top-0 w-full'>
         <Navbar id={pageid} />
       </div>

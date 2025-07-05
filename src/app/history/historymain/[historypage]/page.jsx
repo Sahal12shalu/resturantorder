@@ -91,7 +91,7 @@ function History() {
       {
         length === 0 ?
 
-          <div>
+          <div className='bg-white'>
             <Navbar id={pageid} />
             <div className='flex flex-col pt-[150px] items-center'>
               <MdHistory className='text-orange-500 h-[100px] w-[100px]' />
@@ -103,7 +103,7 @@ function History() {
 
           :
 
-          <div className='w-full'>
+          <div className='w-full bg-white'>
             <Navbar id={pageid} />
             <div className='mx-[10px] xl:mx-[100px] my-[30px] h-auto'>
               <FaWallet className='w-[40px] h-[40px] ' />

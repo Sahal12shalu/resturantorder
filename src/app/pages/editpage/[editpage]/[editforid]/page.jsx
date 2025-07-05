@@ -104,7 +104,7 @@ function Editpage() {
 
 
   return (
-    <div>
+    <div className='bg-white'>
       <Navbar id={pageid} proId={proId} />
       <div>
         <ToastContainer className='w-[400px] h-[70px]' />

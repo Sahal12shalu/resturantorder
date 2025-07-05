@@ -11,7 +11,7 @@ function Successpage() {
   const pageid = params['successpage']
 
   return (
-    <div className='w-full'>
+    <div className='w-full bg-white'>
       <div className='xl:h-[80vh] h-[60vh]  my-[180px] md:my-[80px] flex flex-col items-center mx-[20px] sm:mx-[90px] lg:mx-[250px] xl:mx-[400px] shadow-[0px_-2px_34px_10px_rgba(0,_0,_0,_0.1)]'>
         <IoCheckmarkDoneCircle className='mt-[100px] w-[80px] xl:w-[150px] h-[80px] xl:h-[150px] text-amber-500' />
         <h1 className='text-[16px] xl:text-[24px] font-semibold pt-6'>Order is Successfully Completed</h1>

@@ -54,7 +54,7 @@ function Showpage() {
 
 
     return (
-        <div>
+        <div className='bg-white'>
             <Navbar id={pageid} />
             <div className='flex flex-col justify-center items-center'>
                 <ToastContainer className='w-[400px] h-[70px]' />

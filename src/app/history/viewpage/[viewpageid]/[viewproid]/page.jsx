@@ -22,7 +22,7 @@ function Viewpage() {
 
   
   return (
-    <div>
+    <div className='bg-white'>
       <Navbar id={pageid} proId={proId} />
      
           <h1 className='lg:mx-[200px] mt-[60px] text-[20px] max-lg:pl-3 font-semibold'>CarId - {product._id} </h1>

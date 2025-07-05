@@ -27,21 +27,18 @@ function Popup({ isOpen, onClose, id, onSuccess, pageId }) {
     const addon = await JSON.parse(value)
     if (!id) return;
     Setloading(true)
-    console.log(addon)
     axios.post(`/api/cartproduct`,{
       id,quantity,pageId,addon
     })
       .then((res) => {
         setTimeout(() => {
           Setloading(false)
-          Setdata([])
           Setquantity(1)
           if (res.data.data === 'success') {
             onSuccess()
             onClose()
             axios.get(`/api/cartproduct?pageId=${pageId}`)
             .then((res) => {
-              console.log(res)
                 if (res.data.data.length === 0) {
                     SetcartValue(0)
                 } else {
@@ -74,11 +71,12 @@ function Popup({ isOpen, onClose, id, onSuccess, pageId }) {
     if (!id) return;
     axios.get(`/api/productdeails/singleproduct?id=${id}`)
       .then((res) => {
+        console.log(res.data.product.name)
         Setdata(res.data.product)
       })
   }, [id])
 
-  if (!isOpen) return null;
+  if (!isOpen ) return null;
 
   return (
     <div className="fixed inset-0 h-full flex bg-black/50 items-center justify-center z-50 ">

@@ -179,7 +179,7 @@ function Cartpage({ params }) {
                         </Link>
                     </div> : ''
             }
-            <div>
+            <div className='bg-white'>
                 <Navbar id={id} />
                 <ToastContainer className='w-[400px] h-[70px]' />
                 <div className='flex justify-between'>
