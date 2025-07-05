@@ -112,19 +112,19 @@ function Editpage() {
           <div className='mx-[20px] lg:mx-[200px] 2xl:mx-[300px] flex flex-col items-center mt-[20px] mb-[40px] pb-[40px] shadow-[1px_0px_52px_13px_rgba(0,_0,_0,_0.1)]
            shadow-gray-300 opacity-95 h-auto rounded-2xl bg-black/20' >
             <div className='flex flex-col items-center opacity-100 w-full pt-6'>
-              <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold'>Item Name :</label>
-              <input className='w-[90%] xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
+              <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold text-black'>Item Name :</label>
+              <input className='w-[90%] xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)] text-black
                bg-white mt-2 rounded-md' onChange={(e) => Setname(e.target.value)} value={name} type='text' name='name' required />
             </div>
             <div className='flex flex-col items-center pt-6 opacity-100 w-full'>
-              <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold'>Description :</label>
-              <input className='w-[90%] xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
+              <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold text-black'>Description :</label>
+              <input className='w-[90%] xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)] text-black
                bg-white mt-2 rounded-md' onChange={(e) => Setdescription(e.target.value)} value={description} type='text' name='description' placeholder='About item..' />
             </div>
             <div className='flex items-center pt-6 opacity-100 w-[90%] xl:w-[60%]'>
               <div className='flex flex-col w-[80%]'>
-                <label className='w-[90%] xl:w-[100%] text-start pl-1 text-[16px] font-bold'>category :</label>
-                <select onChange={(e) => Setcategory(e.target.value)} value={category} className='w-[95%] xl:w-[95%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
+                <label className='w-[90%] xl:w-[100%] text-start pl-1 text-[16px] font-bold text-black'>category :</label>
+                <select onChange={(e) => Setcategory(e.target.value)} value={category} className='w-[95%] text-black xl:w-[95%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
                bg-white mt-2 rounded-md' name="category" >
                   <option value="">select</option>
                   <option value="Shake">Shake</option>
@@ -134,8 +134,8 @@ function Editpage() {
                 </select>
               </div>
               <div className='flex flex-col w-[90%]'>
-                <label className='w-[90%] xl:w-[100%] text-start pl-1 text-[16px] font-bold'>seperation :</label>
-                <select onChange={(e) => Setseperation(e.target.value)} value={seperation} className='w-[100%] xl:w-[100%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
+                <label className='w-[90%] xl:w-[100%] text-start pl-1 text-[16px] font-bold text-black'>seperation :</label>
+                <select onChange={(e) => Setseperation(e.target.value)} value={seperation} className='text-black w-[100%] xl:w-[100%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
                bg-white mt-2 rounded-md' name="seperation" required>
                   <option value="">Select</option>
                   <option value="Normal">Normal</option>
@@ -144,8 +144,8 @@ function Editpage() {
               </div>
             </div>
             <div className='flex flex-col items-center pt-6 opacity-100 w-full'>
-              <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold'>Veg or Non-Veg :</label>
-              <select onChange={(e) => Setvegornon(e.target.value)} value={vegornon} className='w-[90%] xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
+              <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold text-black'>Veg or Non-Veg :</label>
+              <select onChange={(e) => Setvegornon(e.target.value)} value={vegornon} className='text-black w-[90%] xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
                bg-white mt-2 rounded-md' name="vegornon" required>
                 <option value="">select</option>
                 <option value="veg">vegeterian</option>
@@ -154,18 +154,18 @@ function Editpage() {
             </div>
             <div className='flex flex-col items-center pt-6 opacity-100 w-full'>
               <div className='w-[90%] xl:w-[60%]'>
-                <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold'>prize :</label>
+                <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold text-black'>prize :</label>
               </div>
 
               {
                 data.addons.map((data, index) => (
 
                   <div key={index} className='flex flex-wrap w-[90%] xl:w-[60%] items-center justify-between'>
-                    <input value={data.name} onChange={(e) => handleChange(index, 'name', e.target.value)} name='name' className='w-[40%] xl:w-[46%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)] bg-white mt-2 rounded-md' type='text' placeholder='text..' />
+                    <input value={data.name} onChange={(e) => handleChange(index, 'name', e.target.value)} name='name' className='text-black w-[40%] xl:w-[46%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)] bg-white mt-2 rounded-md' type='text' placeholder='text..' />
                     <input value={data.price} onChange={(e) => {
                       const value = e.target.value
                       handleChange(index, 'price', value === '' ? '' : value)
-                    }} name='price' className='w-[40%] xl:w-[46%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)] bg-white mt-2 rounded-md' type='tel' placeholder='prize..' required />
+                    }} name='price' className='text-black w-[40%] xl:w-[46%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)] bg-white mt-2 rounded-md' type='tel' placeholder='prize..' required />
                     <button onClick={() => Deleteaddon(index)} className='w-[8%] lg:w-[6%] h-[35px] mt-2 bg-black rounded-md flex items-center justify-center'><MdDelete className='text-red-700' /></button>
                   </div>
                 ))}

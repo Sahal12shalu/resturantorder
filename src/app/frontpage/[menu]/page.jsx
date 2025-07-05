@@ -116,17 +116,17 @@ function Menu({ params }) {
           <div className='fixed z-50 flex flex-wrap shadow-[0px_2px_35px_12px_rgba(0,_0,_0,_0.1)] justify-center items-center text-center
        bottom-1 lg:w-[60%] 2xl:w-[60%] w-[90%] h-[50px] rounded-4xl lg:mx-[290px] 2xl:mx-[350px] mx-6 bg-white'>
             <div className='w-[33%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5' >
-              <div><IoMdHome /></div>
-              <div className='pt-0.5 font-semibold'>Home</div>
+              <div><IoMdHome className='text-black' /></div>
+              <div className='pt-0.5 font-semibold text-black'>Home</div>
             </div>
             <Link href={`/cart/${id}`} className='w-[33%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5'>
-              <div><FaCartShopping /></div>
-              <div className='pt-0.5 font-semibold'>Cart</div>
+              <div><FaCartShopping className='text-black' /></div>
+              <div className='pt-0.5 font-semibold text-black'>Cart</div>
               <p className='ml-1 mt-[-1] w-[20px] h-[20px] sm:w-[25px] sm:h-[25px] rounded-4xl text-[14px] text-white font-semibold bg-amber-600 flex justify-center items-center'>{cartValue ? cartValue : 0}</p>
             </Link>
             <Link href={`/history/historymain/${id}`} className='w-[34%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5' >
-              <div><FaBook /></div>
-              <div className=' font-semibold'>History</div>
+              <div><FaBook className='text-black' /></div>
+              <div className=' font-semibold text-black'>History</div>
             </Link>
           </div> : ''
       }
@@ -177,7 +177,7 @@ function Menu({ params }) {
                   <div>
                     {
                   search ? '' :
-                    <h1 className='text-[24px] font-sans max-xl:pl-3 font-semibold max-md:pl-2 pt-2'>TODAY SPECIALS -</h1>
+                    <h1 className='text-[24px] font-sans max-xl:pl-3 font-semibold max-md:pl-2 pt-2 text-black'>TODAY SPECIALS -</h1>
                     }
                     <div className='flex flex-wrap justify-center items-center gap-2 xl:gap-12  my-2'>
                       {
@@ -208,7 +208,7 @@ function Menu({ params }) {
               <div>
                  {
                   search ? '' :
-                <h1 className='text-[24px] max-xl:pl-3 font-sans font-semibold pt-3 pl-1'>TASTE OUR FOOD :</h1>
+                <h1 className='text-[24px] max-xl:pl-3 font-sans font-semibold pt-3 pl-1 text-black'>TASTE OUR FOOD :</h1>
                  }
                 <div className='flex flex-wrap justify-center items-center xl:gap-12 gap-2 my-2'>
                   {
@@ -238,7 +238,7 @@ function Menu({ params }) {
             :
 
             <div>
-              <h1 className='text-[24px] font-sans font-semibold pt-3 max-xl:pl-3 pl-1'>{categorytitle}</h1>
+              <h1 className='text-[24px] font-sans font-semibold pt-3 max-xl:pl-3 pl-1 text-black'>{categorytitle}</h1>
               <div className='flex flex-wrap justify-center items-center xl:gap-12 gap-2 my-2'>
                 {
                   vegornon.map((value, index) => (

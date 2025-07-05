@@ -61,9 +61,9 @@ function About() {
     <div className='bg-white'>
       <Navbar id={pageid} />
       <div className='lg:mt-[150px] mt-[100px] flex flex-col justify-center items-center'>
-        <h1 className='text-[26px] font-semibold'>Table Number - {pageid}</h1>
-        <h1 className='text-[22px] font-semibold pt-5'>Total orders - {length} </h1>
-        <h1 className='text-[22px] font-semibold pt-5'>Total Amount - {totalamount} </h1>
+        <h1 className='text-[26px] font-semibold text-black'>Table Number - {pageid}</h1>
+        <h1 className='text-[22px] font-semibold pt-5 text-black'>Total orders - {length} </h1>
+        <h1 className='text-[22px] font-semibold pt-5 text-black'>Total Amount - {totalamount} </h1>
       </div>
       <div className='mt-[30px] flex flex-col justify-center items-center' >
         <div className='flex gap-4'>
@@ -76,8 +76,8 @@ function About() {
           />
           <button onClick={() => datesubmit(month)} className='w-[100px] h-[40px] bg-orange-500 hover:bg-orange-600 rounded-xl text-white'>Click</button>
         </div>
-        <h1 className='text-[20px] font-semibold pt-8'>Total orders of Month - {orderofmonth} </h1>
-        <h1 className='text-[20px] font-semibold pt-5'>Total Amount of Month - {totalofmonth} </h1>
+        <h1 className='text-[20px] font-semibold pt-8 text-black'>Total orders of Month - {orderofmonth} </h1>
+        <h1 className='text-[20px] font-semibold pt-5 text-black'>Total Amount of Month - {totalofmonth} </h1>
       </div>
       {loading && (
         <div className='fixed inset-0 bg-black/20 bg-opacity-30 z-50 flex items-center justify-center'>

@@ -69,14 +69,14 @@ function Showpage() {
                             <div key={index} className='flex items-center w-[90%] h-auto mt-6 rounded-xl p-4 py-6 border-2 border-black/30'>
                                 <h1 className='w-[5%] text-center max-lg:hidden'>{index + 1}</h1>
                                 <img src={item.image} alt='image' className='h-[70px] w-[10%] max-lg:w-[20%] rounded-md pr-1' />
-                                <h1 className='w-[20%] text-[18px] pl-1 text-center font-bold max-lg:text-[13px] max-lg:w-[30%]'>{item.name}</h1>
-                                <h1 className='text-center w-[12%] font-semibold max-lg:hidden'>{item.seperation}</h1>
+                                <h1 className='w-[20%] text-[18px] pl-1 text-center font-bold max-lg:text-[13px] max-lg:w-[30%] text-black'>{item.name}</h1>
+                                <h1 className='text-center w-[12%] font-semibold max-lg:hidden text-black'>{item.seperation}</h1>
                                 <h1 className={`${item.vegornon === 'veg' ? 'text-green-500' : 'text-red-500'} flex justify-center items-center w-[8%] max-lg:w-[10%] font-semibold`}><IoRadioButtonOnSharp /></h1>
 
                                 <div className='text-center font-semibold w-[8%] max-lg:hidden'>
                                     {
                                         item?.addons?.map((value, index) => (
-                                            <h1 key={index}>{value.name === '' ? 'full' : value.name}</h1>
+                                            <h1 className='text-black' key={index}>{value.name === '' ? 'full' : value.name}</h1>
                                         ))
                                     }
                                 </div>
@@ -85,14 +85,14 @@ function Showpage() {
                                 <div className='w-[2%] text-center max-lg:hidden'>
                                     {
                                         item?.addons?.map((value, index) => (
-                                            <h1 key={index}> - </h1>
+                                            <h1 className='text-black' key={index}> - </h1>
                                         ))
                                     }
                                 </div>
                                 <div className='text-center w-[10%] font-semibold max-lg:hidden'>
                                     {
                                         item?.addons?.map((value, index) => (
-                                            <h1 key={index}>₹ {value.price} </h1>
+                                            <h1 className='text-black' key={index}>₹ {value.price} </h1>
                                         ))
                                     }
                                 </div>

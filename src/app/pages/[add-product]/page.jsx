@@ -112,19 +112,19 @@ function Addproduct() {
             <Link href={`/pages/showpage/${pageid}`}><button className='w-[140px] h-[35px] bg-blue-600 hover:bg-blue-500 text-white rounded-lg'>Edit Product</button></Link>
           </div>
           <div className='flex flex-col items-center opacity-100 w-full'>
-            <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold'>Item Name :</label>
-            <input value={name} onChange={(e) => Setname(e.target.value)} className='w-[90%] xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
+            <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold text-black'>Item Name :</label>
+            <input value={name} onChange={(e) => Setname(e.target.value)} className='w-[90%] text-black xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
                bg-white mt-2 rounded-md' type='text' name='name' placeholder='Enter Name..' required />
           </div>
           <div className='flex flex-col items-center pt-6 opacity-100 w-full'>
-            <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold'>Description :</label>
-            <input value={description} onChange={(e) => Setdescription(e.target.value)} className='w-[90%] xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
+            <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold text-black'>Description :</label>
+            <input value={description} onChange={(e) => Setdescription(e.target.value)} className='text-black w-[90%] xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
                bg-white mt-2 rounded-md' type='text' name='description' placeholder='About item..' />
           </div>
           <div className='flex items-center pt-6 opacity-100 w-[90%] xl:w-[60%]'>
             <div className='flex flex-col w-[80%]'>
-              <label className='w-[90%] xl:w-[100%] text-start pl-1 text-[16px] font-bold'>category :</label>
-              <select onChange={(e) => Setcategory(e.target.value)} value={category} className='w-[95%] xl:w-[95%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
+              <label className='w-[90%] xl:w-[100%] text-start pl-1 text-[16px] font-bold text-black'>category :</label>
+              <select onChange={(e) => Setcategory(e.target.value)} value={category} className='text-black w-[95%] xl:w-[95%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
                bg-white mt-2 rounded-md' name="category" >
                 <option value="">select</option>
                 <option value="Shake">Shake</option>
@@ -134,7 +134,7 @@ function Addproduct() {
               </select>
             </div>
             <div className='flex flex-col w-[90%]'>
-              <label className='w-[90%] xl:w-[100%] text-start pl-1 text-[16px] font-bold'>seperation :</label>
+              <label className='w-[90%] xl:w-[100%] text-start pl-1 text-[16px] font-bold text-black'>seperation :</label>
               <select onChange={(e) => Setseperation(e.target.value)} value={seperation} className='w-[100%] xl:w-[100%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
                bg-white mt-2 rounded-md' name="seperation" required>
                 <option value="">Select</option>
@@ -144,7 +144,7 @@ function Addproduct() {
             </div>
           </div>
           <div className='flex flex-col items-center pt-6 opacity-100 w-full'>
-            <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold'>Veg or Non-Veg :</label>
+            <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold text-black'>Veg or Non-Veg :</label>
             <select onChange={(e) => Setvegornon(e.target.value)} value={vegornon} className='w-[90%] xl:w-[60%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)]
                bg-white mt-2 rounded-md' name="vegornon" required>
               <option value="">select</option>
@@ -154,15 +154,15 @@ function Addproduct() {
           </div>
           <div className='flex flex-col items-center pt-6 opacity-100 w-full'>
             <div className='w-[90%] xl:w-[60%]'>
-              <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold'>prize :</label>
+              <label className='w-[90%] xl:w-[60%] text-start pl-1 text-[16px] font-bold text-black'>prize :</label>
             </div>
             {addons.map((a, i) => (
               <div key={i} className='flex flex-wrap w-[90%] xl:w-[60%] items-center justify-between'>
-                <input value={a.name} onChange={(e) => handleChange(i, 'name', e.target.value)} name='name' className='w-[40%] xl:w-[46%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)] bg-white mt-2 rounded-md' type='text' placeholder='text..' />
+                <input value={a.name} onChange={(e) => handleChange(i, 'name', e.target.value)} name='name' className='text-black w-[40%] xl:w-[46%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)] bg-white mt-2 rounded-md' type='text' placeholder='text..' />
                 <input value={a.price} onChange={(e) => {
                   const value = e.target.value
                   handleChange(i, 'price', value === '' ? '' : value)
-                }} name='price' className='w-[40%] xl:w-[46%] h-[35px] pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)] bg-white mt-2 rounded-md' type='tel' placeholder='prize..' required />
+                }} name='price' className='w-[40%] xl:w-[46%] h-[35px] text-black pl-3 shadow-[0px_1px_17px_11px_rgba(0,_0,_0,_0.1)] bg-white mt-2 rounded-md' type='tel' placeholder='prize..' required />
                 <button onClick={() => Deleteaddon(i)} className='w-[8%] lg:w-[6%] h-[35px] mt-2 bg-black rounded-md flex items-center justify-center'><MdDelete className='text-red-700' /></button>
               </div>
             ))}

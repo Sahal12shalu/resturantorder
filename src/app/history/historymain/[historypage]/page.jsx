@@ -95,7 +95,7 @@ function History() {
             <Navbar id={pageid} />
             <div className='flex flex-col pt-[150px] items-center'>
               <MdHistory className='text-orange-500 h-[100px] w-[100px]' />
-              <h1 className='font-semibold text-[28px] pt-3'>No Orders Yet</h1>
+              <h1 className='font-semibold text-[28px] pt-3 text-black'>No Orders Yet</h1>
               <p className='text-center text-black/70 pt-4'>Browse products and order with us<br /> share your experience with us</p>
               <Link href={`/frontpage/${pageid}`}><button className='mt-4 hover:bg-orange-600 bg-orange-500 rounded-md text-white w-[150px] h-[40px] '>Order Now</button></Link>
             </div>
@@ -106,8 +106,8 @@ function History() {
           <div className='w-full bg-white'>
             <Navbar id={pageid} />
             <div className='mx-[10px] xl:mx-[100px] my-[30px] h-auto'>
-              <FaWallet className='w-[40px] h-[40px] ' />
-              <h1 className='text-[32px] font-semibold font-sans pb-1'>Historypage</h1>
+              <FaWallet className='w-[40px] h-[40px] text-black' />
+              <h1 className='text-[32px] font-semibold font-sans pb-1 text-black'>Historypage</h1>
               <div className='flex flex-col lg:flex lg:flex-wrap w-[100%] pt-4 pb-8 border-t-2 border-b-2 border-orange-500 lg:justify-between lg:items-center'>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={['DatePicker', 'DatePicker']}>
@@ -130,7 +130,7 @@ function History() {
 
               <Table className='w-full max-md:hidden'>
                 <thead className='h-[50px] bg-gray-200 border-b-2 border-orange-500'>
-                  <tr>
+                  <tr className='text-black'>
                     <th className='w-[5%]'>No</th>
                     <th className='w-[30%]'>
                       <div className='flex w-[100%]'>
@@ -147,7 +147,7 @@ function History() {
 
                 {
                   filteredData.map((item, index) => (
-                    <tbody key={index} className='text-center border-b-2 border-orange-500'>
+                    <tbody key={index} className='text-center border-b-2 border-orange-500 text-black'>
                       <tr>
                         <td className='py-7 max-md:w-[10%] max-md:hidden'>{index + 1}</td>
                         <td className='py-7 max-md:hidden'>
@@ -193,7 +193,7 @@ function History() {
 
               {
                 filteredData.map((item, index) => (
-                  <div key={index} className='md:hidden py-7 flex justify-between items-center px-2 border-b-2 shadow-[0px_2px_11px_9px_rgba(0,_0,_0,_0.1)] border-orange-500'>
+                  <div key={index} className='text-black md:hidden py-7 flex justify-between items-center px-2 border-b-2 shadow-[0px_2px_11px_9px_rgba(0,_0,_0,_0.1)] border-orange-500'>
                     <div>
                       <h1 className='font-semibold text-[13px]'>{item._id}</h1>
                       <div className='flex flex-col pl-3 pt-3'>

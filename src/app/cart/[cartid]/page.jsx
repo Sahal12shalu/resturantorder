@@ -165,17 +165,17 @@ function Cartpage({ params }) {
                     <div className='fixed z-50 flex flex-wrap shadow-[0px_2px_35px_12px_rgba(0,_0,_0,_0.1)] justify-center items-center text-center
                         bottom-2 lg:w-[60%] 2xl:w-[60%] w-[90%] h-[50px] rounded-4xl lg:mx-[290px] 2xl:mx-[350px] mx-6 bg-white'>
                         <Link href={`/frontpage/${id}`} className='w-[33%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5'>
-                            <div><IoMdHome /></div>
-                            <div className='pt-0.5 font-semibold'>Home</div>
+                            <div><IoMdHome className='text-black' /></div>
+                            <div className='pt-0.5 font-semibold text-black'>Home</div>
                         </Link>
                         <div className='w-[33%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5'>
-                            <div><FaCartShopping /></div>
-                            <div className='pt-0.5 font-semibold'>Cart</div>
+                            <div><FaCartShopping className='text-black' /></div>
+                            <div className='pt-0.5 font-semibold text-black'>Cart</div>
                             <p className='ml-1 mt-[-1] w-[20px] h-[20px] sm:w-[25px] sm:h-[25px] rounded-4xl text-[14px] text-white font-semibold bg-amber-600 flex justify-center items-center'>{cartValue ? cartValue : 0}</p>
                         </div>
                         <Link href={`/history/historymain/${id}`} className='w-[34%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5' >
-                            <div><FaBook /></div>
-                            <div className=' font-semibold'>History</div>
+                            <div><FaBook className='text-black' /></div>
+                            <div className=' font-semibold text-black'>History</div>
                         </Link>
                     </div> : ''
             }
@@ -217,9 +217,9 @@ function Cartpage({ params }) {
                                                                 <img src={value.image} className='rounded-xl w-[90px] h-[90px] lg:w-[95px] lg:h-[120px] pl-2 pr-2 py-2' alt='image' />
                                                             </div>
                                                             <div className='max-lg:w-[65%] flex flex-col justify-center'>
-                                                                <h1 className='text-[17px] inline-block font-sans font-bold'>{value.name}</h1>
+                                                                <h1 className='text-[17px] inline-block font-sans font-bold text-black'>{value.name}</h1>
                                                                 {value?.addons?.map((data, index) => (
-                                                                    <p key={index} className='text-[14px]'>₹ {data.price}</p>
+                                                                    <p key={index} className='text-[14px] text-black'>₹ {data.price}</p>
                                                                 ))}
                                                             </div>
                                                         </div>
@@ -230,13 +230,13 @@ function Cartpage({ params }) {
                                                             <div className='flex flex-wrap pb-2 md:pb-5 pt-5 '>
                                                                 {
                                                                     value.quantity === 1 ?
-                                                                        <button className='w-[25px] h-[25px] max-sm:w-[20px] max-sm:h-[20px] lg:w-[40px] lg:h-[30px] shadow-[-6px_0px_12px_-9px_rgba(0,_0,_0,_0.8)] bg-gray-300 rounded-tl-2xl rounded-bl-2xl flex justify-center items-center font-bold'><TiMinus /></button>
-                                                                        : <button onClick={() => decrementbutton(index)} className='hover:scale-105 hover:shadow-[0px_0px_9px_-5px_rgba(0,_0,_0,_0.8)] w-[25px] h-[25px] max-sm:w-[20px] max-sm:h-[20px] lg:w-[40px] lg:h-[30px] shadow-[-6px_0px_12px_-9px_rgba(0,_0,_0,_0.8)] rounded-tl-2xl rounded-bl-2xl flex justify-center items-center font-bold'><TiMinus /></button>
+                                                                        <button className='w-[25px] h-[25px] max-sm:w-[20px] max-sm:h-[20px] lg:w-[40px] lg:h-[30px] shadow-[-6px_0px_12px_-9px_rgba(0,_0,_0,_0.8)] bg-gray-300 rounded-tl-2xl rounded-bl-2xl flex justify-center items-center font-bold'><TiMinus className='text-black' /></button>
+                                                                        : <button onClick={() => decrementbutton(index)} className='hover:scale-105 hover:shadow-[0px_0px_9px_-5px_rgba(0,_0,_0,_0.8)] w-[25px] h-[25px] max-sm:w-[20px] max-sm:h-[20px] lg:w-[40px] lg:h-[30px] shadow-[-6px_0px_12px_-9px_rgba(0,_0,_0,_0.8)] rounded-tl-2xl rounded-bl-2xl flex justify-center items-center font-bold'><TiMinus className='text-black' /></button>
                                                                 }
                                                                 <h1 className='w-[25px] h-[25px] max-sm:w-[20px] max-sm:h-[20px] lg:w-[40px] lg:h-[30px] shadow-[0px_0px_9px_-5px_rgba(0,_0,_0,_0.8)] 
-                                                                 flex justify-center items-center'>{value.quantity}</h1>
+                                                                 flex justify-center items-center text-black'>{value.quantity}</h1>
 
-                                                                <button onClick={() => incrementbutton(index)} className='hover:scale-105 hover:shadow-[0px_0px_9px_-5px_rgba(0,_0,_0,_0.8)] w-[25px] h-[25px] max-sm:w-[20px] max-sm:h-[20px] lg:w-[40px] lg:h-[30px] shadow-[6px_0px_12px_-9px_rgba(0,_0,_0,_0.8)] rounded-tr-2xl rounded-br-2xl flex justify-center items-center font-bold'><TiPlus /></button>
+                                                                <button onClick={() => incrementbutton(index)} className='hover:scale-105 hover:shadow-[0px_0px_9px_-5px_rgba(0,_0,_0,_0.8)] w-[25px] h-[25px] max-sm:w-[20px] max-sm:h-[20px] lg:w-[40px] lg:h-[30px] shadow-[6px_0px_12px_-9px_rgba(0,_0,_0,_0.8)] rounded-tr-2xl rounded-br-2xl flex justify-center items-center font-bold'><TiPlus className='text-black' /></button>
                                                             </div>
                                                             <div className='flex flex-wrap gap-1 max-md:gap-3'>
 
@@ -248,7 +248,7 @@ function Cartpage({ params }) {
                                                     </td>
 
 
-                                                    <td className='max-lg:text-[14px] w-[15%] font-semibold'>₹ {value.totalamount}</td>
+                                                    <td className='max-lg:text-[14px] w-[15%] font-semibold text-black'>₹ {value.totalamount}</td>
                                                 </tr>
                                             ))
                                         }
@@ -260,8 +260,8 @@ function Cartpage({ params }) {
                             {showPopup && (
                                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center rounded-4xl z-50">
                                     <div className="bg-white p-6 rounded shadow-md text-center w-80">
-                                        <h2 className="text-lg font-semibold mb-4">Are you sure?</h2>
-                                        <p className="mb-6">Do you want to delete all items from the cart?</p>
+                                        <h2 className="text-lg font-semibold mb-4 text-black">Are you sure?</h2>
+                                        <p className="mb-6 text-black">Do you want to delete all items from the cart?</p>
                                         <div className="flex justify-between">
                                             <button
                                                 onClick={() => setShowPopup(false)}
@@ -283,8 +283,8 @@ function Cartpage({ params }) {
                             {checkoutshowPopup && (
                                 <div className="fixed inset-0 bg-black/50 flex items-center justify-center rounded-4xl z-50">
                                     <div className="bg-white p-6 rounded shadow-md text-center w-80">
-                                        <h2 className="text-lg font-semibold mb-4">Are you sure?</h2>
-                                        <p className="mb-6">Confirm all products and Move to history page ?</p>
+                                        <h2 className="text-lg font-semibold mb-4 text-black">Are you sure?</h2>
+                                        <p className="mb-6 text-black">Confirm all products and Move to history page ?</p>
                                         <div className="flex justify-between">
                                             <button
                                                 onClick={() => setcheckoutShowPopup(false)}
@@ -308,12 +308,12 @@ function Cartpage({ params }) {
                                     <div key={index} className='w-[100%] md:w-[70%] xl:w-[30%] max-xl:pt-[80px]'>
                                         <div className='bg-orange-600 w-[100%] h-[34px]'></div>
                                         <div className='shadow-[0px_0px_84px_27px_rgba(149,_157,_165,_0.2)] mt-3 h-auto p-10 text-center'>
-                                            <div className='flex justify-between'><h1 className='text-[18px] font-semibold '>Subtotal </h1>
-                                                <h1 className='text-[18px] font-semibold '>₹ {value.grandtotal}</h1></div>
-                                            <div className='flex justify-between my-2'><h1 className='text-[16px]  '>Tax </h1><h1 className='text-[16px] '>₹0</h1></div>
+                                            <div className='flex justify-between'><h1 className='text-[18px] font-semibold text-black'>Subtotal </h1>
+                                                <h1 className='text-[18px] font-semibold text-black'>₹ {value.grandtotal}</h1></div>
+                                            <div className='flex justify-between my-2'><h1 className='text-[16px]  text-black'>Tax </h1><h1 className='text-[16px] '>₹0</h1></div>
                                             <div className='border-b-4 border-orange-600 w-full'></div>
-                                            <div className='flex justify-between py-4'><h1 className=' text-[18px] font-semibold '>Grand Total </h1>
-                                                <h1 className='text-[18px] font-semibold '>₹ {value.grandtotal}</h1></div>
+                                            <div className='flex justify-between py-4'><h1 className=' text-[18px] font-semibold text-black'>Grand Total </h1>
+                                                <h1 className='text-[18px] font-semibold text-black'>₹ {value.grandtotal}</h1></div>
                                             <button onClick={() => checkout(value.pageId)} className='w-[150px] h-[35px] rounded-3xl bg-orange-600 text-white mt-4'>CheckOut</button>
                                         </div>
                                     </div>
