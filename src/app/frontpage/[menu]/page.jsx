@@ -115,16 +115,16 @@ function Menu({ params }) {
         opendown ?
           <div className='fixed z-50 flex flex-wrap shadow-[0px_2px_35px_12px_rgba(0,_0,_0,_0.1)] justify-center items-center text-center
        bottom-1 lg:w-[60%] 2xl:w-[60%] w-[90%] h-[50px] rounded-4xl lg:mx-[290px] 2xl:mx-[350px] mx-6 bg-white'>
-            <div className='w-[33%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5' >
+            <div className='w-[33%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5 bg-white' >
               <div><IoMdHome className='text-black' /></div>
               <div className='pt-0.5 font-semibold text-black'>Home</div>
             </div>
-            <Link href={`/cart/${id}`} className='w-[33%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5'>
+            <Link href={`/cart/${id}`} className='bg-white w-[33%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5'>
               <div><FaCartShopping className='text-black' /></div>
               <div className='pt-0.5 font-semibold text-black'>Cart</div>
               <p className='ml-1 mt-[-1] w-[20px] h-[20px] sm:w-[25px] sm:h-[25px] rounded-4xl text-[14px] text-white font-semibold bg-amber-600 flex justify-center items-center'>{cartValue ? cartValue : 0}</p>
             </Link>
-            <Link href={`/history/historymain/${id}`} className='w-[34%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5' >
+            <Link href={`/history/historymain/${id}`} className='bg-white w-[34%] h-[100%] hover:bg-gray-300 rounded-4xl flex justify-center items-center gap-0.5' >
               <div><FaBook className='text-black' /></div>
               <div className=' font-semibold text-black'>History</div>
             </Link>
