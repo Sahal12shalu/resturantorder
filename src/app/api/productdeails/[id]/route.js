@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET(req) {
     const { searchParams } = new URL(req.url)
-    const id = searchParams.get('id')
+    const id =await searchParams.get('id')
     await dbConnect();
 
     const datas =await userhelper.getsingleproduct(id)
