@@ -5,10 +5,8 @@ import { NextResponse } from 'next/server';
 export async function GET(req) {
     const { searchParams } = new URL(req.url)
     const id = searchParams.get('id')
-    console.log(id)
     await dbConnect();
 
     const datas =await userhelper.getsingleproduct(id)
-    console.log(datas)
     return NextResponse.json({product: datas})
 }
