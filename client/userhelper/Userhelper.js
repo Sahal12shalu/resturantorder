@@ -22,7 +22,7 @@ module.exports = {
 
     getsingleproduct: ((id) => {
         return new Promise((resolve, reject) => {
-            productModel.findById(id).then((res) => {
+            productModel.findById({ _id: id }).then((res) => {
                 resolve(res)
             })
         })

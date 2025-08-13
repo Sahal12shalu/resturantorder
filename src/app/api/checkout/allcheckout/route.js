@@ -8,6 +8,6 @@ export async function GET(req) {
     const { searchParams } = new URL(req.url)
     const id = searchParams.get('id')
 
-    const data = await userhelper.getsingleproduct(id)
+    const data = await userhelper.getviewproduct(id)
     return NextResponse.json({data})
 }
