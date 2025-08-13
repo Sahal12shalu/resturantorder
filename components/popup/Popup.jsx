@@ -72,7 +72,6 @@ function Popup({ isOpen, onClose, id, onSuccess, pageId }) {
     console.log(id)
     axios.get(`/api/productdeails/singleproduct?id=${id}`)
       .then((res) => {
-        console.log(res)
         Setdata(res.data.product)
       })
   }, [id])
